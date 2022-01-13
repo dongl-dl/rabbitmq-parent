@@ -1,9 +1,10 @@
 package com.dongl.producer.service;
 
+import com.alibaba.fastjson.JSON;
 import com.dongl.producer.entity.BaseMsg;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
@@ -14,7 +15,7 @@ import java.util.UUID;
  * @description: TODO
  * @createTime 2022年01月12日 19:35:00
  */
-@RestController
+@Service
 public class ProducerService {
 
     @Autowired
@@ -26,6 +27,6 @@ public class ProducerService {
         BaseMsg baseMsg = new BaseMsg(UUID.randomUUID().toString(),"1000001", "15566545532", "dl@163.com");
 
         //发送消息对象
-        amqpTemplate.convertAndSend("my_exchange" , "" , baseMsg);
+        amqpTemplate.convertAndSend("my_exchange" , "" , JSON.toJSONString(baseMsg));
     }
 }

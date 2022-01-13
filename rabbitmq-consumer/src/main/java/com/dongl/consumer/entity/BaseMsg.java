@@ -1,6 +1,8 @@
-package com.dongl.producer.entity;
+package com.dongl.consumer.entity;
 
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * @author dongliang7
@@ -10,7 +12,9 @@ import lombok.Data;
  * @createTime 2022年01月12日 19:33:00
  */
 @Data
-public class BaseMsg {
+public class BaseMsg implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String msgId;
 
@@ -25,5 +29,8 @@ public class BaseMsg {
         this.userId = userId;
         this.phone = phone;
         this.email = email;
+    }
+
+    public BaseMsg() {
     }
 }

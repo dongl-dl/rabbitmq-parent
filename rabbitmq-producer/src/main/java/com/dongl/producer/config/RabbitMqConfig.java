@@ -20,7 +20,7 @@ public class RabbitMqConfig {
     /**
      * 定义交换机
      */
-    private String FANOUT_EXCHANGE_NAME = "/my_exchange";
+    private String FANOUT_EXCHANGE_NAME = "my_exchange";
 
     /**
      * 短信队列
@@ -31,6 +31,11 @@ public class RabbitMqConfig {
      * 邮件队列
      */
     private String FANOUT_EMAIL_QUEUE = "email_queue";
+
+    /**
+     * key
+     */
+    private String SMS_KEY = "my_key";
 
 
 
