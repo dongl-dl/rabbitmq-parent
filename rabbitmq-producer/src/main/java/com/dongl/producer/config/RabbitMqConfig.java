@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @author dongliang7
  * @projectName rabbitmq-parent
  * @ClassName RabbitMqConfig.java
- * @description: TODO
+ * @description: RabbitMq配置类
  * @createTime 2022年01月12日 18:48:00
  */
 @Component
@@ -36,8 +36,6 @@ public class RabbitMqConfig {
      * key
      */
     private String SMS_KEY = "my_key";
-
-
 
     /**
      * 1、注入队列和交换机到spring容器中
