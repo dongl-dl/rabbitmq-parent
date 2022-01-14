@@ -1,7 +1,7 @@
 package com.dongl.producer.service;
 
-import com.alibaba.fastjson.JSON;
-import com.dongl.producer.entity.BaseMsg;
+
+import com.dongl.common.entity.BaseMsg;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,6 @@ public class ProducerService {
         BaseMsg baseMsg = new BaseMsg(UUID.randomUUID().toString(),"1000001", "15566545532", "dl@163.com");
 
         //发送消息对象
-        amqpTemplate.convertAndSend("my_exchange" , "" , JSON.toJSONString(baseMsg));
+        amqpTemplate.convertAndSend("my_exchange" , "" , baseMsg);
     }
 }

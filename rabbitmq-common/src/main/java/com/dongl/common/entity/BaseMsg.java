@@ -1,4 +1,4 @@
-package com.dongl.consumer.entity;
+package com.dongl.common.entity;
 
 import lombok.Data;
 
@@ -13,7 +13,6 @@ import java.io.Serializable;
  */
 @Data
 public class BaseMsg implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     private String msgId;

@@ -1,5 +1,7 @@
 package com.dongl.consumer.service;
 
+import com.dongl.common.entity.BaseMsg;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +13,13 @@ import org.springframework.stereotype.Service;
  * @createTime 2022年01月13日 15:45:00
  */
 @Service
+@Slf4j
+@RabbitListener(queues = "sms_queue")
 public class ConsumerService {
-    //配置监听的哪一个队列，同时在没有queue和exchange的情况下会去创建并建立绑定关系
-    @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "email_queue",durable = "true"),
-            exchange = @Exchange(name="my_exchange",durable = "true",type = "fanout"),
-            key = "*"
-    )
-    )
+
     @RabbitHandler
-    public void process(String content) {
-        System.out.println("处理器one接收处理队列A当中的消息： " + content);
+    public void process(BaseMsg msgEntity) {
+        log.info("sms：msgEntity:" + msgEntity.getMsgId());
     }
 
 }
