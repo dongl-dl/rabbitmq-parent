@@ -16,7 +16,7 @@ package com.dongl.deadletterqueue.consumer;//package com.mayikt.consumer;
 //     *
 //     * @param msg
 //     */
-//    @RabbitListener(queues = "mayikt_order_queue")
+//    @RabbitListener(queues = "dongl_order_queue")
 //    public void orderConsumer(String msg) {
 //        log.info(">>正常订单消费者消息MSG:{}<<", msg);
 //    }
