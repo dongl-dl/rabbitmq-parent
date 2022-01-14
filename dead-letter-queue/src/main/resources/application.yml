@@ -1,0 +1,24 @@
+server:
+  port: 10015
+
+spring:
+  application:
+    name: dead-server
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+###模拟演示死信队列
+dongl:
+  dlx:
+    exchange: dongl_dlx_exchange
+    queue: dongl_order_dlx_queue
+    routingKey: dlx
+  ###备胎交换机
+  order:
+    exchange: dongl_order_exchange
+    queue: dongl_order_queue
+    routingKey: dongl.order
