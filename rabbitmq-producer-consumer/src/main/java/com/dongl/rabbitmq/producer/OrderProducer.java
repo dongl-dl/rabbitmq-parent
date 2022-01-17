@@ -1,6 +1,6 @@
 package com.dongl.rabbitmq.producer;
 
-import com.dongl.rabbitmq.entity.OrderEntity;
+import com.dongl.rabbitmq.entity.OrderInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -27,8 +27,8 @@ public class OrderProducer implements RabbitTemplate.ConfirmCallback {
      * @param orderId
      */
     public void sendMsg(String orderName, String orderId) {
-        OrderEntity orderEntity = new OrderEntity(orderName, orderId);
-        rabbitTemplate.convertAndSend("/mayikt_order", "", orderEntity, message -> {
+        OrderInfo orderInfo = new OrderInfo(orderName, orderId);
+        rabbitTemplate.convertAndSend("/dongl_order", "", orderInfo, message -> {
             return message;
         });
 //        CorrelationData correlationData = new CorrelationData();

@@ -13,7 +13,7 @@ public class RabbitMQConfig {
     /**
      * 定义交换机
      */
-    private String EXCHANGE_SPRINGBOOT_NAME = "/mayikt_order";
+    private String EXCHANGE_SPRINGBOOT_NAME = "/dongl_order";
 
 
     /**

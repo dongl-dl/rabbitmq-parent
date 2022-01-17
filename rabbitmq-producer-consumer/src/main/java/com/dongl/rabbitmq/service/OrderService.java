@@ -1,8 +1,8 @@
 package com.dongl.rabbitmq.service;
 
 
-import com.dongl.rabbitmq.entity.OrderEntity;
-import com.dongl.rabbitmq.mapper.OrderMapper;
+import com.dongl.rabbitmq.entity.OrderInfo;
+import com.dongl.rabbitmq.mapper.OrderInfoDao;
 import com.dongl.rabbitmq.producer.OrderProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class OrderService {
 
 
     @Autowired
-    private OrderMapper orderMapper;
+    private OrderInfoDao orderMapper;
     @Autowired
     private OrderProducer orderProducer;
 
@@ -25,8 +25,8 @@ public class OrderService {
         // 生成全局id
         String orderId = System.currentTimeMillis() + "";
         log.info("orderId:{}", orderId);
-        String orderName = "每特教育svip课程报名";
-        orderProducer.sendMsg(orderName, orderId);
+        String orderName = "消息体·············";
+        orderProducer.sendMsg(orderId , orderName);
         return orderId;
     }
 
@@ -39,7 +39,7 @@ public class OrderService {
      */
     @RequestMapping("/getOrder")
     public Object getOrder(String orderId) {
-        OrderEntity order = orderMapper.getOrder(orderId);
+        OrderInfo order = orderMapper.getOrder(orderId);
         if (order == null) {
             return "该订单没有被消费或者订单号错误!";
         }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongl.rabbitmq.mapper.OrderInfoDao">
+  <resultMap id="BaseResultMap" type="com.dongl.rabbitmq.entity.OrderInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="orderId" jdbcType="VARCHAR" property="orderid" />
+    <result column="orderName" jdbcType="VARCHAR" property="ordername" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, orderId, orderName, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from order_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dongl.rabbitmq.entity.OrderInfo" useGeneratedKeys="true">
+    insert into order_info (orderId, orderName, create_time
+      )
+    values (#{orderid,jdbcType=VARCHAR}, #{ordername,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dongl.rabbitmq.entity.OrderInfo" useGeneratedKeys="true">
+    insert into order_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        orderId,
+      </if>
+      <if test="ordername != null">
+        orderName,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dongl.rabbitmq.entity.OrderInfo">
+    update order_info
+    <set>
+      <if test="orderid != null">
+        orderId = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null">
+        orderName = #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dongl.rabbitmq.entity.OrderInfo">
+    update order_info
+    set orderId = #{orderid,jdbcType=VARCHAR},
+      orderName = #{ordername,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getOrder" parameterType="string" resultMap="BaseResultMap">
+    select * from order_info where orderId = #{orderid,jdbcType=VARCHAR}
+  </select>
+</mapper>
