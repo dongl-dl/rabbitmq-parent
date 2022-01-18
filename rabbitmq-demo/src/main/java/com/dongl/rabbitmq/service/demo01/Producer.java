@@ -17,7 +17,7 @@ public class Producer {
         Channel channel = connection.createChannel();
         //3.发送消息
         for (int i = 0; i < 100; i++) {
-            String msg = "每特教育6666:i" + i;
+            String msg = "发送测试消息6666:i" + i;
             channel.basicPublish("", QUEUE_NAME, null, msg.getBytes());
         }
         System.out.println("消息投递成功");
