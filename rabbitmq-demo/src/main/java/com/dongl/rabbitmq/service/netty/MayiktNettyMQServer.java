@@ -14,11 +14,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingDeque;
 
-/**
- * @ClassName NettyMQServer2021
- * @Author 蚂蚁课堂余胜军 QQ644064779 www.mayikt.com
- * @Version V1.0
- **/
 public class MayiktNettyMQServer {
     public void bind(int port) throws Exception {
         /**

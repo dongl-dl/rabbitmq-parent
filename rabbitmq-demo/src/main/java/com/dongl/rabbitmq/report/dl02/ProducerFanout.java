@@ -1,14 +1,20 @@
-package com.dongl.rabbitmq.service.demo03;
+package com.dongl.rabbitmq.report.dl02;
 
-import com.dongl.rabbitmq.connection.RabbitMQConnection;
+import com.dongl.rabbitmq.report.RabbitMQConnection;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * @author dongliang7
+ * @projectName rabbitmq-parent
+ * @ClassName ProducerFanout.java
+ * @description: Fanout 发布订阅  生产者
+ * @createTime 2022年01月18日 18:24:00
+ */
 public class ProducerFanout {
-
     /**
      * 定义交换机的名称
      */
@@ -21,7 +27,7 @@ public class ProducerFanout {
         Channel channel = connection.createChannel();
         // 通道关联交换机
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout", true);
-        String msg = "6666";
+        String msg = "Fanout 消息~~~~~~~~~~~~~~";
         channel.basicPublish(EXCHANGE_NAME, "", null, msg.getBytes());
         channel.close();
         connection.close();

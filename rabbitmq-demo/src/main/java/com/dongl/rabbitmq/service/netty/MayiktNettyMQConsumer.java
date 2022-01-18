@@ -9,11 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-/**
- * @ClassName MayiktNettyMQProducer
- * @Author 蚂蚁课堂余胜军 QQ644064779 www.mayikt.com
- * @Version V1.0
- **/
+
 public class MayiktNettyMQConsumer {
     public void connect(int port, String host) throws Exception {
         //配置客户端NIO 线程组

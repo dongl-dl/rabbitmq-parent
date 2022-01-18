@@ -4,11 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.concurrent.LinkedBlockingDeque;
 
-/**
- * @ClassName MayiktThreadMQ
- * @Author 蚂蚁课堂余胜军 QQ644064779 www.mayikt.com
- * @Version V1.0
- **/
 public class MayiktThreadMQ {
 
     private static LinkedBlockingDeque<JSONObject> msgs = new LinkedBlockingDeque<JSONObject>();
