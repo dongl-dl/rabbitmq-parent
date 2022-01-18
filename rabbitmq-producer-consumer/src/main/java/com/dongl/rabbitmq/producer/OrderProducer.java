@@ -33,7 +33,7 @@ public class OrderProducer implements RabbitTemplate.ConfirmCallback {
         });
 //        CorrelationData correlationData = new CorrelationData();
 //        correlationData.setId(JSONObject.toJSONString(orderEntity));
-//        rabbitTemplate.convertAndSend("/mayikt_order", "", orderEntity,correlationData);
+//        rabbitTemplate.convertAndSend("/dongl_order", "", orderEntity,correlationData);
     }
 
 }

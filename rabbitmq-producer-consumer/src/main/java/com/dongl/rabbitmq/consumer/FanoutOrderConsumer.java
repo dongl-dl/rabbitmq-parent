@@ -15,11 +15,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-/**
- * @ClassName fanout_sms_queue
- * @Author 蚂蚁课堂余胜军 QQ644064779 www.mayikt.com
- * @Version V1.0
- **/
 @Slf4j
 @Component
 @RabbitListener(queues = "fanout_order_queue")
@@ -39,6 +34,7 @@ public class FanoutOrderConsumer {
             return;
         }
         OrderInfo dbOrderInfo = orderMapper.getOrder(orderId);
+//        OrderInfo dbOrderInfo =  null;
         if (dbOrderInfo != null) {
             log.info("另外消费者已经处理过该业务逻辑");
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
