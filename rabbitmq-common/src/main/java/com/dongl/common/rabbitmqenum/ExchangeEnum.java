@@ -9,7 +9,7 @@ import java.util.List;
  * @author dongliang7
  * @projectName rabbitmq-parent
  * @ClassName ExchangeEnum.java
- * @description: TODO
+ * @description: 交换机枚举类
  * @createTime 2022年01月19日 19:16:00
  */
 @Getter

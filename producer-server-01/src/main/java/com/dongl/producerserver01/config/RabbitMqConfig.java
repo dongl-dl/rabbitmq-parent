@@ -13,7 +13,7 @@ import java.util.Map;
  * @author dongliang7
  * @projectName rabbitmq-parent
  * @ClassName RabbitMqConfig.java
- * @description: TODO
+ * @description: 动态创建 RabbitMq 交换机、队列、绑定关系 bean 实例
  * @createTime 2022年01月20日 09:43:00
  */
 @Component
@@ -27,7 +27,6 @@ public class RabbitMqConfig {
 
     /**
      * 动态创建交换机
-     * @return
      */
     @Bean("createExchange")
     public Object createExchange() {
@@ -63,7 +62,6 @@ public class RabbitMqConfig {
 
     /**
      * 动态创建队列
-     * @return
      */
     @Bean("createQueue")
     public Object createQueue() {
@@ -75,7 +73,6 @@ public class RabbitMqConfig {
 
     /**
      * 动态将交换机及队列绑定
-     * @return
      */
     @Bean("createBinding")
     public Object createBinding() {

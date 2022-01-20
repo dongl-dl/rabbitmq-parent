@@ -13,7 +13,7 @@ import java.util.UUID;
  * @author dongliang7
  * @projectName rabbitmq-parent
  * @ClassName ProducerService.java
- * @description: TODO
+ * @description: 生产者
  * @createTime 2022年01月12日 19:35:00
  */
 @Service
@@ -28,6 +28,9 @@ public class ProducerService {
         BaseMsg baseMsg = new BaseMsg(UUID.randomUUID().toString(),"1000001", "15566545532", "dl@163.com");
 
         //发送消息对象
-        amqpTemplate.convertAndSend(ExchangeEnum.FANOUT.getExchangeName(), "" , baseMsg);
+//        amqpTemplate.convertAndSend(ExchangeEnum.FANOUT.getExchangeName(), "" , baseMsg);
+//        amqpTemplate.convertAndSend(ExchangeEnum.DIRECT.getExchangeName(), "key" , baseMsg);
+
+        amqpTemplate.convertAndSend(ExchangeEnum.TOPIC.getExchangeName(), "topic.user.dl" , baseMsg);
     }
 }

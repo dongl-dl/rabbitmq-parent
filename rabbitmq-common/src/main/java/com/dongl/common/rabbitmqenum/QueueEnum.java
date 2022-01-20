@@ -21,7 +21,24 @@ public enum QueueEnum {
     /**
      * 广播队列
      */
-    fanout_dong("dong.fanout" , "fanout.*" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.FANOUT);
+    fanout_dong("dong.fanout.test" , "test.*" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.FANOUT),
+    fanout_dong1("dong.fanout.test2" , "test2.*" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.FANOUT),
+
+    /**
+     * 直连队列
+     */
+    direct_dong("dong.direct" , "key" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.DIRECT),
+
+    /**
+     * 通配符队列
+     */
+    topic_dong("dong.topic.user" , "topic.user.*" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.TOPIC);
+
+    /**
+     * 头队列
+     */
+//    headers_dong1("dong.headers1" , "*" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.HEADERS),
+//    headers_dong2("dong.headers2" , "*" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.HEADERS);
 
     /**
      *队列名称（队列名称必须唯一）

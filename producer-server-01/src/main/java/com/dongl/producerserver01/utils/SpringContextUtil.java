@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author dongliang7
  * @projectName rabbitmq-parent
  * @ClassName SpringContextUtil.java
- * @description:
+ * @description: spring bean 工具类
  * @createTime 2022年01月20日 10:55:00
  */
 

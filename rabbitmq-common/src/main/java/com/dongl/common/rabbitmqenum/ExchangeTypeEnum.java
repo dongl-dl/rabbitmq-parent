@@ -4,7 +4,7 @@ package com.dongl.common.rabbitmqenum;
  * @author dongliang7
  * @projectName rabbitmq-parent
  * @ClassName ExchangeTypeEnum.java
- * @description: TODO
+ * @description: 交换机类型枚举类
  * @createTime 2022年01月19日 19:19:00
  */
 public enum ExchangeTypeEnum {
