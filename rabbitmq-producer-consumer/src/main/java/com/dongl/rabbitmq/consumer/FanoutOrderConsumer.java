@@ -41,7 +41,7 @@ public class FanoutOrderConsumer {
             return;
         }
         int result = orderManager.addOrder(orderInfo);
-//        int i = 1 / 0;
+        int i = 1 / 0;
         log.info(">>插入数据库中数据成功<<");
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
 //        } catch (Exception e) {

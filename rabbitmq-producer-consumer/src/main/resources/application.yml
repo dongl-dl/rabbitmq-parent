@@ -43,6 +43,60 @@ spring:
           ####重试间隔时间
           initial-interval: 3000
         acknowledge-mode: manual
+        concurrency: 5
+        max-concurrency: 10
+    connection-timeout: 15000
+    publisher-returns: true
+    template:
+      mandatory: true
+
+
+
+#######  Rabbit MQ Exchange Queue Config  ##########
+rabbit:
+  # 交换机
+  exchanges:
+    #    # 自定义-延迟
+    #    - name: delay.mode
+    #      type: CUSTOM
+    #      custom-type: x-delayed-message
+    #      arguments:
+    #        x-delayed-type: direct
+    #    # 通配符订阅
+    #    - name: topic.mode
+    #      type: TOPIC
+    #    # 广播
+    #    - name: fanout.mode
+    #      type: FANOUT
+    #    # 消息头
+    #    - name: headers.mode
+    #      type: HEADERS
+    # 直连交换机
+    - name: centerDeliverExchange
+      type: DIRECT
+
+  # 队列
+  queues:
+    # 直连队列
+    - name: queue-PLUS2-9002
+      routing-key: route-PLUS2-9002
+      exchange-name: centerDeliverExchange
+
+    - name: queue-PLUS2-9003
+      routing-key: route-PLUS2-9003
+      exchange-name: centerDeliverExchange
+#    # 队列2
+#    - name: queue.2
+#      routing-key: queue.*
+#      exchange-name: fanout.mode,topic.mode
+#    # 延迟队列
+#    - name: delay.queue
+#      routing-key: delay.queue
+#      exchange-name: delay.mode
+
+
+
+
 
 # mybatis 扫描路径
 mybatis:
