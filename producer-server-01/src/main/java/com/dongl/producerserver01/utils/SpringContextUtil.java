@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author dongliang7
  * @projectName rabbitmq-parent
  * @ClassName SpringContextUtil.java
- * @description: TODO
+ * @description:
  * @createTime 2022年01月20日 10:55:00
  */
 
@@ -99,7 +99,7 @@ public class SpringContextUtil implements ApplicationContextAware {
         ConfigurableApplicationContext context = (ConfigurableApplicationContext)   SpringContextUtil.getApplicationContext();
         // 将bean对象注册到bean工厂
         context.getBeanFactory().registerSingleton(beanName, bean);
-        log.debug("【SpringContextUtil】注册实例“" + beanName + "”到spring容器：" + bean);
+        log.info("【SpringContextUtil】注册实例“" + beanName + "”到spring容器：" + bean);
         return true;
     }
 }
