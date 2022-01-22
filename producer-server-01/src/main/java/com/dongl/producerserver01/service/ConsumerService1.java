@@ -19,8 +19,9 @@ import java.io.IOException;
 @Slf4j
 public class ConsumerService1 {
 
+    //#{queuesNames.队列枚举名称}
     /**
-     * #{queuesNames.队列枚举名称}
+     * 扇形（广播）交换机消费者
      * @param msgEntity
      * @param message
      * @param channel
@@ -28,13 +29,13 @@ public class ConsumerService1 {
      */
     @RabbitListener(queues = {"#{queuesNames.fanout_dong}"})
     public void fanoutListener1(BaseMsg msgEntity , Message message, Channel channel) throws IOException {
-        log.info("ConsumerService1 ----------------------sms：msgEntity:" + msgEntity);
+        log.info("广播交换机对应队列：msgEntity:" + msgEntity);
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 
     @RabbitListener(queues = {"#{queuesNames.fanout_dong1}"})
     public void fanout_dong1(BaseMsg msgEntity , Message message, Channel channel) throws IOException {
-        log.info("ConsumerService1 ----------------------sms：msgEntity:" + msgEntity);
+        log.info("广播交换机对应队列1·：msgEntity:" + msgEntity);
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 
@@ -64,4 +65,5 @@ public class ConsumerService1 {
         log.info("通配符交换机对应队列消息：msgEntity:" + msgEntity);
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
+
 }

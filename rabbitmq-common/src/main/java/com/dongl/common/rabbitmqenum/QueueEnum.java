@@ -30,9 +30,9 @@ public enum QueueEnum {
     direct_dong("dong.direct" , "key" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.DIRECT),
 
     /**
-     * 通配符队列
+     * 通配符队列 *只能匹配一个  #可以匹配零个或多个
      */
-    topic_dong("dong.topic.user" , "topic.user.*" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.TOPIC);
+    topic_dong("dong.topic.user" , "topic.user.#" , true , false , false , QueueArguments.public_argument , false , null , ExchangeEnum.TOPIC);
 
     /**
      * 头队列

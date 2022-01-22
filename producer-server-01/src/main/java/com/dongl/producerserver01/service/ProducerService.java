@@ -29,8 +29,9 @@ public class ProducerService {
 
         //发送消息对象
 //        amqpTemplate.convertAndSend(ExchangeEnum.FANOUT.getExchangeName(), "" , baseMsg);
+
 //        amqpTemplate.convertAndSend(ExchangeEnum.DIRECT.getExchangeName(), "key" , baseMsg);
 
-        amqpTemplate.convertAndSend(ExchangeEnum.TOPIC.getExchangeName(), "topic.user.dl" , baseMsg);
+        amqpTemplate.convertAndSend(ExchangeEnum.TOPIC.getExchangeName(), "topic.user.fl.gh.klfgd" , baseMsg);
     }
 }
